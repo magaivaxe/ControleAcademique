@@ -33,13 +33,28 @@ public class CaWindow extends JFrame implements ActionListener
      */
     CaWindow()
     {
-        //Window title
+        //Window title and set up
         setTitle("Contrôle Académique");
-        //Window position and dimension
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //Insert Menu Bar with menus
+        setJMenuBar(createJMenuBar());
+        
+        
+        //Display the window
         setBounds(X, Y, W_WIDTH, W_HEIGHT);
-        //MenuBar
+        setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ev)
+    {
+        
+    }
+    
+    private JMenuBar createJMenuBar()
+    {
+        //MenuBar instance
         menuBar = new JMenuBar();
-        setJMenuBar(menuBar);
         //Menu
         mFile = new JMenu("Fichier");mEdit = new JMenu("Édition");
         mTools = new JMenu("Outils");mHelp = new JMenu("Aide");
@@ -80,13 +95,7 @@ public class CaWindow extends JFrame implements ActionListener
         mTClasLastName = new JMenuItem("Nom de famille");
         mToolsClassify.add(mTClasLastName);
         
-        
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent ev)
-    {
-        
+        return menuBar;
     }
 }
 

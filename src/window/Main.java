@@ -14,14 +14,13 @@ import javax.swing.JFrame;
 public class Main
 {
     //Instanciations
-    static JFrame cawindow = new CaWindow();
+    static JFrame cawindow; 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args)
     {
-        //Visibility
-        cawindow.setVisible(true);
+        cawindow = new CaWindow();
     }
     
 }
