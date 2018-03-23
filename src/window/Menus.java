@@ -5,17 +5,20 @@
  */
 package window;
 
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
 
 /**
- *
+ * 
  * @author sire_marcos
  */
-class Menus
+class Menus extends JMenuBar
 {
     //Menu objects
-    private JMenuBar menuBar;
     private JMenu mFile,mEdit,mTools,mHelp,mToolsClassify;
     private JMenuItem mFileNew,mFileOpen,mFileSave,mFileSaveAs,mFileQuit,
                       mEditAdd,mEditModify,mEditDelete,
@@ -24,18 +27,12 @@ class Menus
 
     Menus()
     {
-        
-    }
-    JMenuBar createJMenuBar()
-    {
-        //MenuBar instance
-        menuBar = new JMenuBar();
         //Menu
         mFile = new JMenu("Fichier");mEdit = new JMenu("Édition");
         mTools = new JMenu("Outils");mHelp = new JMenu("Aide");
         //Add menus to MenuBar
-        menuBar.add(mFile);menuBar.add(mEdit);
-        menuBar.add(mTools);menuBar.add(mHelp);
+        add(mFile);add(mEdit);
+        add(mTools);add(mHelp);
         //MenuItems and add to menus
         mFileNew = new JMenuItem("Nouveau");
         mFile.add(mFileNew);
@@ -69,7 +66,5 @@ class Menus
         mToolsClassify.add(mTClasStudent);
         mTClasLastName = new JMenuItem("Nom de famille");
         mToolsClassify.add(mTClasLastName);
-        
-        return menuBar;
     }
 }

@@ -7,9 +7,7 @@ package window;
 //Libraries
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
-import javax.swing.*;
+import javax.swing.JFrame;
 
 /**
  * Class to create the application window 
@@ -34,9 +32,7 @@ class CaWindow extends JFrame implements ActionListener
         setTitle("Contrôle Académique");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //Insert Menu Bar with menus
-        setJMenuBar(menus.createJMenuBar());
-        
-        
+        setJMenuBar(menus);
         //Display the window
         setBounds(X, Y, W_WIDTH, W_HEIGHT);
         setVisible(true);
