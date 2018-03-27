@@ -5,27 +5,24 @@
  */
 package window;
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
  * @author sire_marcos
  */
-class GradesTable extends JPanel
+class GradesTable extends JScrollPane
 {
     //Fields
     private boolean DEBUG = false;
-    //Objects
-    JTable gradesJTable;
-
-    GradesTable()
-    {
-        //Constructor of JPanel
-        super(new GridLayout(0, 0));
-        
-        String [] ColumnNames = 
+    String [] ColumnNames = 
         {
             "ID",
             "Prénom",
@@ -35,9 +32,49 @@ class GradesTable extends JPanel
             "Moyenne",
             "Situation"
         };
-        Object[][] rowData = null;
-        
-        gradesJTable = new JTable(rowData, ColumnNames);
+    Object[][] rowData = 
+        {
+            {" "," "," "," "," "," "," "},
+            {"","","","","","",""},
+            {"","","","","","",""},
+            {"","","","","","",""}
+        };
+    //Table objects
+    JTable gradesJTable;
+    TableModel tableModel;
+    //Scroll pane object
+    JScrollPane scrollPaneJTable;
+
+    GradesTable()
+    {
+        //Instance from table and table model
+        tableModel = new DefaultTableModel(rowData, ColumnNames);
+        gradesJTable = new JTable(tableModel);
+        //Instance from scrollpane
+        scrollPaneJTable =  new JScrollPane(
+                gradesJTable, 
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, 
+                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }

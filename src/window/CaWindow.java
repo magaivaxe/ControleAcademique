@@ -5,24 +5,22 @@
  */
 package window;
 //Libraries
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.BorderLayout;
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 /**
  * Class to create the application window 
  * @author sire_marcos
  */
-class CaWindow extends JFrame implements ActionListener
+class CaWindow extends JFrame
 {
     //Fields
-    private int X = 650;
-    private int Y = 200;
     private int W_WIDTH = 1200;
     private int W_HEIGHT = 600;
     
     private Menus menus = new Menus();
-    
+    private JScrollPane gradesTable = new GradesTable();
     /**
      * Window constructor
      */
@@ -31,18 +29,18 @@ class CaWindow extends JFrame implements ActionListener
         //Window title and set up
         setTitle("Contrôle Académique");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
         //Insert Menu Bar with menus
-        setJMenuBar(menus);
+        add(menus, BorderLayout.NORTH);
+        //setJMenuBar(menus);
+        //Add gradeTable
+        add(gradesTable, BorderLayout.CENTER);
         //Display the window
-        setBounds(X, Y, W_WIDTH, W_HEIGHT);
+        setSize(W_WIDTH, W_HEIGHT);
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent ev)
-    {
-        
-    }
     
 }
 
